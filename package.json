@@ -4,7 +4,7 @@
   "description": "basic example of login,register,auth etc",
   "main": "index.js",
   "scripts": {
-    "start": "NODE_ENV=development node server.js",
+    "start": "NODE_ENV=staging node server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon server.js"
   },
