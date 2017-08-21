@@ -66,6 +66,16 @@ server.on('uncaughtException', (req, res, route, err) => {
  */
 server.listen(config.port, function() {
 
+    log.info(
+            '%s v%s ready to accept connections on port %s in %s environment.',
+            server.name,
+            config.version,
+            config.port,
+            config.env,
+            config.db.uri,
+            config.base_url
+        )
+
     mongoose.connection.on('error', function(err) {
         log.error('Mongoose default connection error: ' + err)
         process.exit(1)
@@ -77,15 +87,6 @@ server.listen(config.port, function() {
             log.error('Mongoose default connection error: ' + err)
             process.exit(1)
         }
-
-
-        log.info(
-            '%s v%s ready to accept connections on port %s in %s environment.',
-            server.name,
-            config.version,
-            config.port,
-            config.env
-        )
 
         require('./routes')
 

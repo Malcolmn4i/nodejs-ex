@@ -1,5 +1,7 @@
 'use strict'
 
+var db_name = 'sampledb'
+
 module.exports = function(){
 
     switch(process.env.NODE_ENV){
@@ -33,10 +35,10 @@ module.exports = function(){
                     session: false
                 },
                 env: process.env.NODE_ENV || 'staging',
-                port: process.env.OPENSHIFT_NODEJS_PORT || 8080,
-                base_url: process.env.OPENSHIFT_NODEJS_IP || 'http://127.0.0.1:8080',
+                port: process.env.OPENSHIFT_NODEJS_PORT || 27017,
+                base_url: process.env.OPENSHIFT_NODEJS_IP || 'http://nodejs-mongo-persistent-malcolmnracebook.a3c1.starter-us-west-1.openshiftapps.com',
                 db: {
-                    uri: 'mongodb://172.30.124.154:27017/sampledb'
+                    uri:'mongodb://172.30.124.154:27017/sampledb'
                 },
             }
 
